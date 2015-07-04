@@ -9,6 +9,7 @@ if Rails.env.production?
   }
 
   Refile.host = "//d16cx2malcbma7.cloudfront.net"
+  
   Refile.cache = Refile::S3.new(prefix: "cache", **aws)
   Refile.store = Refile::S3.new(prefix: "store", **aws)
 end
