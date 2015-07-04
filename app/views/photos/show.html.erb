@@ -1,0 +1,9 @@
+<h1>SHOW</h1>
+
+<%= image_tag attachment_url(@photo, :file, :fill, 300, 300, format: 'jpg') %>
+<%= image_tag attachment_url(@photo, :file, :fill, 150, 150, format: 'jpg') %>
+<%= image_tag attachment_url(@photo, :file, :fill, 75, 75, format: 'jpg') %>
+<p><%= @photo.caption %></p>
+
+<%= link_to 'All Photos', photos_path %>
+<%= link_to 'Edit Photo', edit_photo_path(@photo) %>

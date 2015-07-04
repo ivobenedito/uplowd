@@ -1,0 +1,6 @@
+<%= form_for @photo do |f| %>
+  <%= f.attachment_field :file, direct: true, presigned: true %>
+  <%= f.text_field :caption %>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>INDEX</h1>
+
+<ul>
+  <% @photos.each do |photo| %>
+    <li>
+      <%= image_tag attachment_url(photo, :file, :fill, 300, 300, format: 'jpg') %>
+      <%= link_to photo.caption, photo %>
+      <%= link_to 'Delete', photo, method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Photo', new_photo_path %>
