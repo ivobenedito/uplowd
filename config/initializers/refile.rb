@@ -8,8 +8,8 @@ if Rails.env.production?
     bucket: Rails.application.secrets.aws_bucket
   }
 
-  Refile.host = "//d16cx2malcbma7.cloudfront.net"
-  
+  Refile.host = '//d16cx2malcbma7.cloudfront.net'
+
   Refile.cache = Refile::S3.new(prefix: "cache", **aws)
   Refile.store = Refile::S3.new(prefix: "store", **aws)
 end
