@@ -2,9 +2,8 @@ Rails.application.routes.draw do
 
   root 'properties#index'
 
-  resources :properties, shallow: true do
-    resources :photos
-  end
+  resources :photos, only: [:edit, :update, :destroy]
+  resources :properties
 
   # Example resource route with concerns:
   #   concern :toggleable do
