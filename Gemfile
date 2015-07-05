@@ -13,7 +13,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 gem 'bootstrap-sass'
-gem 'refile', require: 'refile/rails'
+gem 'refile', github: 'refile', branch: 'master', require: 'refile/rails'
 gem 'refile-mini_magick'
 gem 'refile-s3'
 gem 'aws-sdk'
@@ -26,8 +26,8 @@ group :production do
 end
 
 group :development, :test do
-  gem 'sqlite3'
-  gem 'byebug'
+  gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
