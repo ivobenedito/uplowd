@@ -2,21 +2,21 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   def index
-    @photos = Photo.all
+    @photos = current_property.photos.all
   end
 
   def show
   end
 
   def new
-    @photo = Photo.new
+    @photo = current_property.photos.new
   end
 
   def edit
   end
 
   def create
-    @photo = Photo.new(photo_params)
+    current_property.create_photos(photo_params)
 
     if @photo.save
       redirect_to @photo, notice: 'Success!'
@@ -48,5 +48,10 @@ class PhotosController < ApplicationController
     def set_photo
       @photo = Photo.find(params[:id])
     end
+
+    def current_property
+      @property ||= Property.find(params[:property_id])
+    end
+    helper_method :current_property
 
 end

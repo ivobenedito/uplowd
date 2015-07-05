@@ -1,13 +1,20 @@
-<h1>INDEX</h1>
-
-<ul>
-  <% @photos.each do |photo| %>
-    <li>
-      <%= image_tag attachment_url(photo, :file, :fill, 300, 300, format: 'jpg') %>
-      <%= link_to photo.caption, photo %>
-      <%= link_to 'Delete', photo, method: :delete %>
-    </li>
-  <% end %>
+<ul class="nav nav-pills" style="margin: 15px 0;">
+  <li>
+    <%= link_to 'New Photo', new_property_photo_path(current_property) %>
+  </li>
 </ul>
 
-<%= link_to 'New Photo', new_photo_path %>
+<div class="row">
+  <% @photos.each do |photo| %>
+    <div class="col-sm-3">
+      <div class="photo">
+        <%= image_tag attachment_url(photo, :file, :fill, 300, 300, format: 'jpg'), class: 'img-responsive img-rounded' %>
+      </div>
+
+      <div class="btn-group btn-group-sm" style="margin-top: 20px;">
+        <%= link_to 'Details', photo, class: 'btn btn-default' %>
+        <%= link_to 'Delete', photo, method: :delete, class: 'btn btn-default', data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+</div>

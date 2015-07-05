@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h2><%= Property.all.count %> Properties</h2>
+</div>
+
+<ul class="nav nav-pills" style="margin: 15px 0;">
+  <li>
+    <%= link_to 'New Property', new_property_path %>
+  </li>
+</ul>
+
+<div class="row">
+  <% @properties.each do |property| %>
+    <div class="col-sm-3">
+      <div class="photo">
+        <%= link_to property do %>
+          <% if property.photos.exists? %>
+            <%= image_tag attachment_url(property.photos.first, :file, :fill, 300, 300, format: 'jpg'), class: 'img-responsive img-rounded' %>
+          <% else %>
+            <%= image_tag 'default.jpg', class: 'img-responsive img-rounded' %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <h4><%= property.title %></h4>
+      <p><%= property.description %></p>
+    </div>
+  <% end %>
+</div>
