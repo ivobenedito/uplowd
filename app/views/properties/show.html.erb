@@ -6,6 +6,9 @@
   <li>
     <%= link_to 'Back to Properties', properties_path %>
   </li>
+  <li>
+    <%= link_to 'Download Photos', download_property_photos_path(@property) %>
+  </li>
 </ul>
 
 <%= render 'form' %>
