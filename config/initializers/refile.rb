@@ -13,3 +13,19 @@ if Rails.env.production?
   Refile.cache = Refile::S3.new(prefix: "cache", **aws)
   Refile.store = Refile::S3.new(prefix: "store", **aws)
 end
+
+class CustomImageProcessor < Refile::MiniMagick
+
+  def watermark(img)
+    img.combine_options do |c|
+      c.gravity 'Center'
+      c.draw %Q{image Over 0,0 0,0 "#{Photo.watermark_image_path}"}
+    end
+
+    img
+  end
+end
+
+[:watermark].each do |name|
+  Refile.processor(name, CustomImageProcessor.new(name))
+end

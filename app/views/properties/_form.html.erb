@@ -15,7 +15,7 @@
     <% @property.photos.each do |photo| %>
       <div class="col-sm-3">
         <div class="photo">
-          <%= image_tag attachment_url(photo, :file, :fill, 300, 300, format: 'jpg'), class: 'img-responsive img-rounded' %>
+          <%= image_tag attachment_url(photo, :file, :watermark, format: 'jpg'), class: 'img-responsive img-rounded' %>
         </div>
 
         <%= link_to 'Delete', photo, method: :delete, class: 'btn btn-xs btn-default', data: { confirm: 'Are you sure?' } %>
