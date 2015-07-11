@@ -1,2 +1,54 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+body {
+  padding-bottom: 100px;
+}
+
+.photo-preview {
+  width: 110px;
+  height: 70px;
+  margin-left: 10px;
+}
+
+.preview-list {
+  margin-top: 10px;
+}
+
+.preview-list-item {
+  padding: 10px;
+  border: solid 1px #d3d3d3;
+  margin-bottom: 10px;
+}
+
+.preview-list-item__icon {
+  float: left;
+}
+
+.preview-list-item__name {
+  float: left;
+}
+
+.preview-list-item__size {
+  float: right;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}

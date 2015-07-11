@@ -5,6 +5,7 @@ class PropertiesController < ApplicationController
     @properties = Property.all
   end
 
+  def edit; end
   def show; end
 
   def new
@@ -25,7 +26,7 @@ class PropertiesController < ApplicationController
     if @property.update(property_params)
       redirect_to @property, notice: 'Property was successfully updated.'
     else
-      render :edit
+      render :show
     end
   end
 

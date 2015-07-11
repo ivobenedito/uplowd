@@ -1,0 +1,24 @@
+<fieldset style="margin-top: 40px;">
+  <legend>Photos</legend>
+
+  <ul class="nav nav-pills" style="margin-bottom: 20px;">
+    <li>
+      <%= link_to 'Upload', '#', class: 'js-btn-upload-photos-dialog' %>
+    </li>
+    <li>
+      <%= link_to 'Download', download_property_photos_path(@property) %>
+    </li>
+  </ul>
+
+  <% @property.photos.each do |photo| %>
+    <div class="col-sm-2">
+      <div class="photo" style="margin-bottom: 10px;">
+        <%= image_tag attachment_url(photo, :file, :watermark, 200, 200, format: 'jpg'), class: 'img-responsive img-rounded' %>
+      </div>
+
+      <div class="text-center">
+        <%= link_to 'Delete', photo, method: :delete, class: 'btn btn-xs btn-default', data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+</fieldset>

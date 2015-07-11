@@ -1,0 +1,38 @@
+<div class="modal fade js-upload-photos-dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= simple_form_for @property do |f| %>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+          <h4 class="modal-title">Choose Files</h4>
+        </div>
+
+        <div class="modal-body">
+          <span class="btn btn-default btn-file">
+            Browse ...
+            <%#= f.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
+            <%= f.input_field :photos_files, as: :attachment, multiple: true, direct: true, presigned: true %>
+          </span>
+
+          <ul class="list-unstyled js-preview-list preview-list">
+            <!-- -->
+            <script class="js-preview-list-item-tpl" type="text/x-handlebars-template">
+              <li class="clearfix preview-list-item">
+                <span class="preview-list-item__icon">ICON</span>
+                <span class="preview-list-item__name">{{name}}</span>
+                <span class="preview-list-item__size">{{humanSize}}</span>
+              </li>
+            </script>
+            <!-- preview-list__item (template) -->
+          </ul>
+        </div>
+
+        <div class="modal-footer">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

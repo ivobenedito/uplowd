@@ -1,51 +1,16 @@
-<%= form_for @property do |f| %>
+
+<%= simple_form_for @property do |f| %>
+  <%= f.error_notification %>
+
   <fieldset>
     <legend>Details</legend>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.input :title %>
+    <%= f.input :description %>
   </fieldset>
 
-  <fieldset>
-    <legend>Photos</legend>
-
-    <% @property.photos.each do |photo| %>
-      <div class="col-sm-3">
-        <div class="photo">
-          <%= image_tag attachment_url(photo, :file, :watermark, format: 'jpg'), class: 'img-responsive img-rounded' %>
-        </div>
-
-        <%= link_to 'Delete', photo, method: :delete, class: 'btn btn-xs btn-default', data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
-  </fieldset>
-
-  <fieldset>
-    <legend>Upload</legend>
-
-    <img class="img-responsive img-rounded preview" src="" style="width: 50px; height: 50px;">
-
-    <%= f.label :photos_files %>
-    <%= f.attachment_field :photos_files, multiple: true, direct: true, presigned: true %>
-  </fieldset>
-
-  <%= f.submit %>
+  <%= f.button :submit %>
 <% end %>
 
-<script type="text/javascript">
-  $(document).on('ready page:load', function () {
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) { $('img.preview').attr('src', e.target.result); }
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-
-    $('input[type=file]').on('change', function () { readURL(this); });
-  });
-</script>
+<%= render 'photos' %>
+<%= render 'components/upload_photos_dialog' %>
