@@ -18,6 +18,7 @@ gem 'refile-mini_magick'
 gem 'refile-s3'
 gem 'aws-sdk'
 gem 'rubyzip'
+gem 'simple_form'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
